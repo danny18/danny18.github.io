@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>MessageQueue初探 | Danny18的技术博客</title>
+  <title>Danny18的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="MessageQueue初探">
-<meta property="og:url" content="http://yoursite.com/2017/03/09/MessageQueue/index.html">
+  <meta name="description" content="swarm mode 概述Docker Engine从v1.12.0之后开始支持和集成swarm mode。可以使用Docker CLI去创建swarm，部署应用服务和进行swarm集群管理。
+Feature highlightsDocker Engine集成集群管理使用Docker Engine CLI创建swarm集群，部署应用服务，不需要额外的编排软件（orchestration softw">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Danny18的技术博客">
+<meta property="og:url" content="http://yoursite.com/2017/05/19/docker-swarm-mode/index.html">
 <meta property="og:site_name" content="Danny18的技术博客">
-<meta property="og:updated_time" content="2017-03-09T02:05:17.177Z">
+<meta property="og:description" content="swarm mode 概述Docker Engine从v1.12.0之后开始支持和集成swarm mode。可以使用Docker CLI去创建swarm，部署应用服务和进行swarm集群管理。
+Feature highlightsDocker Engine集成集群管理使用Docker Engine CLI创建swarm集群，部署应用服务，不需要额外的编排软件（orchestration softw">
+<meta property="og:updated_time" content="2017-05-19T04:49:28.833Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MessageQueue初探">
+<meta name="twitter:title" content="Danny18的技术博客">
+<meta name="twitter:description" content="swarm mode 概述Docker Engine从v1.12.0之后开始支持和集成swarm mode。可以使用Docker CLI去创建swarm，部署应用服务和进行swarm集群管理。
+Feature highlightsDocker Engine集成集群管理使用Docker Engine CLI创建swarm集群，部署应用服务，不需要额外的编排软件（orchestration softw">
   
     <link rel="alternative" href="/atom.xml" title="Danny18的技术博客" type="application/atom+xml">
   
@@ -142,27 +148,23 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MessageQueue" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-docker-swarm-mode" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      MessageQueue初探
-    </h1>
-  
-
-        
-        <a href="/2017/03/09/MessageQueue/" class="archive-article-date">
-  	<time datetime="2017-03-09T02:04:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-09</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="swarm-mode-概述"><a href="#swarm-mode-概述" class="headerlink" title="swarm mode 概述"></a>swarm mode 概述</h1><p>Docker Engine从v1.12.0之后开始支持和集成swarm mode。可以使用Docker CLI去创建swarm，部署应用服务和进行swarm集群管理。</p>
+<h2 id="Feature-highlights"><a href="#Feature-highlights" class="headerlink" title="Feature highlights"></a>Feature highlights</h2><p><strong>Docker Engine集成集群管理</strong><br>使用Docker Engine CLI创建swarm集群，部署应用服务，不需要额外的编排软件（orchestration software）创建和管理swarm。</p>
+<p><strong>去中心设计</strong><br>在部署阶段，Docker Engine并不区分节点角色之间的差异，而在运行阶段去区分不同的节点类型。你可以使用Docker Engine部署manager和worker这两种类型的节点。因此你可以使用一个磁盘镜像（single disk image）去建立整个swarm网络。</p>
+<p><strong>声明式服务模型</strong><br>Docker Engine使用声明式方法定义应用程序栈中的不同服务的期望状态（desired state）。</p>
+<p><strong>Scaling</strong><br>你可以声明每个服务想要运行的任务数目。swarm manager会根据声明自动调整任务数目以达到期望的运行状态。</p>
+<p><strong>Desired state reconciliation</strong><br>swarm manager持续监控集群状态，并不断调整实际状态以达到期望状态。比如启动了一个有10个复制的服务，一个宿主机上的两个复制挂掉了，swarm manager会创建两个新的复制来保持整个集群的运行状态。</p>
+<p><strong>多宿主机网络</strong><br>可以为服务指定一个覆盖网络（overlay network）。swarm manager会自动给container分配地址。</p>
+<p><strong>服务发现</strong><br>swarm manager会给每一个service分配一个独有的DNS。可以通过swarm内置的DNS模块去访问swarm中运行的container。</p>
+<p><strong>负载均衡</strong><br>swarm支持将服务的端口暴露给外部的负载均衡器。同时在内部，swarm也允许给指定节点分发服务。</p>
+<p><strong>安全设计</strong><br>支持TLS传输协议和自签证书。</p>
+<p><strong>滚动更新</strong><br>swarm manager可以控制不同节点上服务部署的延迟时间。如果出现错误，可以快速的回滚到之前的版本。</p>
+
       
 
       
@@ -191,29 +193,7 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MQ</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/MQ/" class="article-tag-list-link color3">MQ</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -263,7 +243,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/09/MessageQueue/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/19/docker-swarm-mode/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -277,18 +257,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/19/docker-swarm-mode/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/05/19/docker-swarm-mode-overview-md/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          docker-swarm-mode-overview.md
         
       </div>
     </a>
   
   
-    <a href="/2017/03/09/Redis/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Redis初探</div>
+    <a href="/2017/03/09/MessageQueue/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MessageQueue初探</div>
       <i class="icon-circle-right"></i>
     </a>
   

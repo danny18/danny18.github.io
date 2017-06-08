@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>MessageQueue初探 | Danny18的技术博客</title>
+  <title>docker-swarm-mode-key-concepts | Danny18的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="MessageQueue初探">
-<meta property="og:url" content="http://yoursite.com/2017/03/09/MessageQueue/index.html">
+  <meta name="description" content="swarm mode核心概念什么是swarmswarm是一个Docker engine或Docker节点的集群。通过Docker Engine CLI和API去管理swarm节点，部署和编排服务。
+当使用非swarm mode运行docker时，执行container命令。当使用swarm mode时，则对service进行编排。可以在同一个docker实例上运行swarm服务和独立的contai">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker-swarm-mode-key-concepts">
+<meta property="og:url" content="http://yoursite.com/2017/05/19/docker-swarm-mode-key-concepts/index.html">
 <meta property="og:site_name" content="Danny18的技术博客">
-<meta property="og:updated_time" content="2017-03-09T02:05:17.177Z">
+<meta property="og:description" content="swarm mode核心概念什么是swarmswarm是一个Docker engine或Docker节点的集群。通过Docker Engine CLI和API去管理swarm节点，部署和编排服务。
+当使用非swarm mode运行docker时，执行container命令。当使用swarm mode时，则对service进行编排。可以在同一个docker实例上运行swarm服务和独立的contai">
+<meta property="og:updated_time" content="2017-05-19T09:48:49.685Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MessageQueue初探">
+<meta name="twitter:title" content="docker-swarm-mode-key-concepts">
+<meta name="twitter:description" content="swarm mode核心概念什么是swarmswarm是一个Docker engine或Docker节点的集群。通过Docker Engine CLI和API去管理swarm节点，部署和编排服务。
+当使用非swarm mode运行docker时，执行container命令。当使用swarm mode时，则对service进行编排。可以在同一个docker实例上运行swarm服务和独立的contai">
   
     <link rel="alternative" href="/atom.xml" title="Danny18的技术博客" type="application/atom+xml">
   
@@ -142,27 +148,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MessageQueue" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-docker-swarm-mode-key-concepts" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      MessageQueue初探
+      docker-swarm-mode-key-concepts
     </h1>
   
 
         
-        <a href="/2017/03/09/MessageQueue/" class="archive-article-date">
-  	<time datetime="2017-03-09T02:04:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-09</time>
+        <a href="/2017/05/19/docker-swarm-mode-key-concepts/" class="archive-article-date">
+  	<time datetime="2017-05-19T08:34:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="swarm-mode核心概念"><a href="#swarm-mode核心概念" class="headerlink" title="swarm mode核心概念"></a>swarm mode核心概念</h1><h2 id="什么是swarm"><a href="#什么是swarm" class="headerlink" title="什么是swarm"></a>什么是swarm</h2><p>swarm是一个Docker engine或Docker节点的集群。通过Docker Engine CLI和API去管理swarm节点，部署和编排服务。</p>
+<p>当使用非swarm mode运行docker时，执行container命令。当使用swarm mode时，则对service进行编排。可以在同一个docker实例上运行swarm服务和独立的container。</p>
+<h2 id="什么是节点"><a href="#什么是节点" class="headerlink" title="什么是节点"></a>什么是节点</h2><p>节点是swarm中一个Docker engine的实例。在一台物理机或者云服务器上可以运行一个或多个节点，不过生产环境中swarm的部署通常会在多台物理机或者云服务器上。</p>
+<p>通过提交一个服务定义（service definition）到一个manager node来部署应用。而manager node分发工作单元（called tasks）到worker node上。管理节点同时还负责集群的管理和任务的编排，管理节点之间会选举出一个leader来领导编排任务。</p>
+<p>工作节点接收执行任务，缺省情况下，管理节点也和工作节点一样运行服务，不过你也可以单独配置管理节点去做纯管理的事情（manager-only）。每个工作节点上面有一个代理，负责报告任务的执行情况。 工作节点会通知管理节点当前运行状态从而管理节点可以保持每个工作节点的理想状态。</p>
+<h2 id="服务和任务"><a href="#服务和任务" class="headerlink" title="服务和任务"></a>服务和任务</h2><p>服务定义了一批任务。一个服务是swarm系统的核心结构，同时也是主要的交互接口。</p>
+<p>服务包括复制服务模型（replicated service model）和全局服务模型（global service model）。rsm可以在节点上创建多个复制服务，而gsm会在每个可用节点上运行一个服务的任务。</p>
+<p>一个任务包括一个container和container执行的命令，是swarm中最小的调度单元。管理节点根据服务规模中设定的复制节点，安排工作节点上运行的任务。当一个任务被安排在一个节点上运行时，就不能移动到另外的节点上。</p>
+<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p>swarm manager使用入口负载均衡（ingress load balancing）。可以自己指定一个服务的发布端口，也可以由swarm manager从30000-32767之间选择一个端口。</p>
+
       
 
       
@@ -196,7 +211,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MQ</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -208,7 +223,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/MQ/" class="article-tag-list-link color3">MQ</a>
+        			<a href="/categories/docker/" class="article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -263,7 +278,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/09/MessageQueue/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/19/docker-swarm-mode-key-concepts/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -277,18 +292,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/19/docker-swarm-mode/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/05/22/cannal-overview/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          cannal-overview
         
       </div>
     </a>
   
   
-    <a href="/2017/03/09/Redis/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Redis初探</div>
+    <a href="/2017/05/19/docker swarm/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   
