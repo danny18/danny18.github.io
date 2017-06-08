@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>docker-swarm-mode-overview.md | Danny18的技术博客</title>
+  <title>docker swarm mode概述 | Danny18的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="swarm mode 概述Docker Engine从v1.12.0之后开始支持和集成swarm mode。可以使用Docker CLI去创建swarm，部署应用服务和进行swarm集群管理。
-Feature highlightsDocker Engine集成集群管理使用Docker Engine CLI创建swarm集群，部署应用服务，不需要额外的编排软件（orchestration softw">
+  <meta name="description" content="Docker Engine从v1.12.0之后开始支持和集成swarm mode。可以使用Docker CLI去创建swarm，部署应用服务和进行swarm集群管理。
+Feature highlightsDocker Engine集成集群管理使用Docker Engine CLI创建swarm集群，部署应用服务，不需要额外的编排软件（orchestration software）创建和管理swar">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker-swarm-mode-overview.md">
+<meta property="og:title" content="docker swarm mode概述">
 <meta property="og:url" content="http://yoursite.com/2017/05/19/docker-swarm-mode-overview/index.html">
 <meta property="og:site_name" content="Danny18的技术博客">
-<meta property="og:description" content="swarm mode 概述Docker Engine从v1.12.0之后开始支持和集成swarm mode。可以使用Docker CLI去创建swarm，部署应用服务和进行swarm集群管理。
-Feature highlightsDocker Engine集成集群管理使用Docker Engine CLI创建swarm集群，部署应用服务，不需要额外的编排软件（orchestration softw">
-<meta property="og:updated_time" content="2017-05-19T08:28:33.260Z">
+<meta property="og:description" content="Docker Engine从v1.12.0之后开始支持和集成swarm mode。可以使用Docker CLI去创建swarm，部署应用服务和进行swarm集群管理。
+Feature highlightsDocker Engine集成集群管理使用Docker Engine CLI创建swarm集群，部署应用服务，不需要额外的编排软件（orchestration software）创建和管理swar">
+<meta property="og:updated_time" content="2017-06-08T06:32:03.029Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="docker-swarm-mode-overview.md">
-<meta name="twitter:description" content="swarm mode 概述Docker Engine从v1.12.0之后开始支持和集成swarm mode。可以使用Docker CLI去创建swarm，部署应用服务和进行swarm集群管理。
-Feature highlightsDocker Engine集成集群管理使用Docker Engine CLI创建swarm集群，部署应用服务，不需要额外的编排软件（orchestration softw">
+<meta name="twitter:title" content="docker swarm mode概述">
+<meta name="twitter:description" content="Docker Engine从v1.12.0之后开始支持和集成swarm mode。可以使用Docker CLI去创建swarm，部署应用服务和进行swarm集群管理。
+Feature highlightsDocker Engine集成集群管理使用Docker Engine CLI创建swarm集群，部署应用服务，不需要额外的编排软件（orchestration software）创建和管理swar">
   
     <link rel="alternative" href="/atom.xml" title="Danny18的技术博客" type="application/atom+xml">
   
@@ -66,6 +66,8 @@ Feature highlightsDocker Engine集成集群管理使用Docker Engine CLI创建sw
 				<li><a href="/tags/Redis/">Redis</a></li>
 	        
 				<li><a href="/tags/MQ/">MQ</a></li>
+	        
+				<li><a href="/tags/docker">docker</a></li>
 	        
 			</ul>
 		</nav>
@@ -115,6 +117,8 @@ Feature highlightsDocker Engine集成集群管理使用Docker Engine CLI创建sw
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -127,13 +131,15 @@ Feature highlightsDocker Engine集成集群管理使用Docker Engine CLI创建sw
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">主页</a></li>
+					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/设计模式/">设计模式</a></li>
+					<li style="width: 20%"><a href="/tags/设计模式/">设计模式</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/Redis/">Redis</a></li>
+					<li style="width: 20%"><a href="/tags/Redis/">Redis</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/MQ/">MQ</a></li>
+					<li style="width: 20%"><a href="/tags/MQ/">MQ</a></li>
+		        
+					<li style="width: 20%"><a href="/tags/docker">docker</a></li>
 		        
 				</ul>
 			</nav>
@@ -155,7 +161,7 @@ Feature highlightsDocker Engine集成集群管理使用Docker Engine CLI创建sw
         
   
     <h1 class="article-title" itemprop="name">
-      docker-swarm-mode-overview.md
+      docker swarm mode概述
     </h1>
   
 
@@ -168,7 +174,7 @@ Feature highlightsDocker Engine集成集群管理使用Docker Engine CLI创建sw
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="swarm-mode-概述"><a href="#swarm-mode-概述" class="headerlink" title="swarm mode 概述"></a>swarm mode 概述</h1><p>Docker Engine从v1.12.0之后开始支持和集成swarm mode。可以使用Docker CLI去创建swarm，部署应用服务和进行swarm集群管理。</p>
+        <p>Docker Engine从v1.12.0之后开始支持和集成swarm mode。可以使用Docker CLI去创建swarm，部署应用服务和进行swarm集群管理。</p>
 <h2 id="Feature-highlights"><a href="#Feature-highlights" class="headerlink" title="Feature highlights"></a>Feature highlights</h2><p><strong>Docker Engine集成集群管理</strong><br>使用Docker Engine CLI创建swarm集群，部署应用服务，不需要额外的编排软件（orchestration software）创建和管理swarm。</p>
 <p><strong>去中心设计</strong><br>在部署阶段，Docker Engine并不区分节点角色之间的差异，而在运行阶段去区分不同的节点类型。你可以使用Docker Engine部署manager和worker这两种类型的节点。因此你可以使用一个磁盘镜像（single disk image）去建立整个swarm网络。</p>
 <p><strong>声明式服务模型</strong><br>Docker Engine使用声明式方法定义应用程序栈中的不同服务的期望状态（desired state）。</p>
@@ -294,18 +300,18 @@ Feature highlightsDocker Engine集成集群管理使用Docker Engine CLI创建sw
   
 <nav id="article-nav">
   
-    <a href="/2017/05/19/docker swarm/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/05/19/docker-swarm-mode-key-concepts/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          docker swarm的核心概念
         
       </div>
     </a>
   
   
-    <a href="/2017/05/19/docker-swarm-mode/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2017/03/09/MessageQueue/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MessageQueue初探</div>
       <i class="icon-circle-right"></i>
     </a>
   
