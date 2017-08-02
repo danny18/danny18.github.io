@@ -149,6 +149,78 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-docker-swarm-start" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/08/docker-swarm-start/">docker swarm mode简单应用</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/08/docker-swarm-start/" class="archive-article-date">
+  	<time datetime="2017-06-08T06:38:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/docker/" class="article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/08/docker-swarm-start/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-docker-swarm-mode-key-concepts" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -169,7 +241,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="swarm-mode核心概念"><a href="#swarm-mode核心概念" class="headerlink" title="swarm mode核心概念"></a>swarm mode核心概念</h1><h2 id="什么是swarm"><a href="#什么是swarm" class="headerlink" title="什么是swarm"></a>什么是swarm</h2><p>swarm是一个Docker engine或Docker节点的集群。通过Docker Engine CLI和API去管理swarm节点，部署和编排服务。</p>
+        <h2 id="什么是swarm"><a href="#什么是swarm" class="headerlink" title="什么是swarm"></a>什么是swarm</h2><p>swarm是一个Docker engine或Docker节点的集群。通过Docker Engine CLI和API去管理swarm节点，部署和编排服务。</p>
 <p>当使用非swarm mode运行docker时，执行container命令。当使用swarm mode时，则对service进行编排。可以在同一个docker实例上运行swarm服务和独立的container。</p>
 <h2 id="什么是节点"><a href="#什么是节点" class="headerlink" title="什么是节点"></a>什么是节点</h2><p>节点是swarm中一个Docker engine的实例。在一台物理机或者云服务器上可以运行一个或多个节点，不过生产环境中swarm的部署通常会在多台物理机或者云服务器上。</p>
 <p>通过提交一个服务定义（service definition）到一个manager node来部署应用。而manager node分发工作单元（called tasks）到worker node上。管理节点同时还负责集群的管理和任务的编排，管理节点之间会选举出一个leader来领导编排任务。</p>

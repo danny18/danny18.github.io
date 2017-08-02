@@ -8,19 +8,22 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>docker swarm的核心概念 | Danny18的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="swarm mode核心概念什么是swarmswarm是一个Docker engine或Docker节点的集群。通过Docker Engine CLI和API去管理swarm节点，部署和编排服务。
-当使用非swarm mode运行docker时，执行container命令。当使用swarm mode时，则对service进行编排。可以在同一个docker实例上运行swarm服务和独立的contai">
+  <meta name="description" content="什么是swarmswarm是一个Docker engine或Docker节点的集群。通过Docker Engine CLI和API去管理swarm节点，部署和编排服务。
+当使用非swarm mode运行docker时，执行container命令。当使用swarm mode时，则对service进行编排。可以在同一个docker实例上运行swarm服务和独立的container。
+什么是节点节点是s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker swarm的核心概念">
 <meta property="og:url" content="http://yoursite.com/2017/05/19/docker-swarm-mode-key-concepts/index.html">
 <meta property="og:site_name" content="Danny18的技术博客">
-<meta property="og:description" content="swarm mode核心概念什么是swarmswarm是一个Docker engine或Docker节点的集群。通过Docker Engine CLI和API去管理swarm节点，部署和编排服务。
-当使用非swarm mode运行docker时，执行container命令。当使用swarm mode时，则对service进行编排。可以在同一个docker实例上运行swarm服务和独立的contai">
-<meta property="og:updated_time" content="2017-06-08T06:31:44.429Z">
+<meta property="og:description" content="什么是swarmswarm是一个Docker engine或Docker节点的集群。通过Docker Engine CLI和API去管理swarm节点，部署和编排服务。
+当使用非swarm mode运行docker时，执行container命令。当使用swarm mode时，则对service进行编排。可以在同一个docker实例上运行swarm服务和独立的container。
+什么是节点节点是s">
+<meta property="og:updated_time" content="2017-06-08T06:34:54.080Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker swarm的核心概念">
-<meta name="twitter:description" content="swarm mode核心概念什么是swarmswarm是一个Docker engine或Docker节点的集群。通过Docker Engine CLI和API去管理swarm节点，部署和编排服务。
-当使用非swarm mode运行docker时，执行container命令。当使用swarm mode时，则对service进行编排。可以在同一个docker实例上运行swarm服务和独立的contai">
+<meta name="twitter:description" content="什么是swarmswarm是一个Docker engine或Docker节点的集群。通过Docker Engine CLI和API去管理swarm节点，部署和编排服务。
+当使用非swarm mode运行docker时，执行container命令。当使用swarm mode时，则对service进行编排。可以在同一个docker实例上运行swarm服务和独立的container。
+什么是节点节点是s">
   
     <link rel="alternative" href="/atom.xml" title="Danny18的技术博客" type="application/atom+xml">
   
@@ -174,7 +177,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="swarm-mode核心概念"><a href="#swarm-mode核心概念" class="headerlink" title="swarm mode核心概念"></a>swarm mode核心概念</h1><h2 id="什么是swarm"><a href="#什么是swarm" class="headerlink" title="什么是swarm"></a>什么是swarm</h2><p>swarm是一个Docker engine或Docker节点的集群。通过Docker Engine CLI和API去管理swarm节点，部署和编排服务。</p>
+        <h2 id="什么是swarm"><a href="#什么是swarm" class="headerlink" title="什么是swarm"></a>什么是swarm</h2><p>swarm是一个Docker engine或Docker节点的集群。通过Docker Engine CLI和API去管理swarm节点，部署和编排服务。</p>
 <p>当使用非swarm mode运行docker时，执行container命令。当使用swarm mode时，则对service进行编排。可以在同一个docker实例上运行swarm服务和独立的container。</p>
 <h2 id="什么是节点"><a href="#什么是节点" class="headerlink" title="什么是节点"></a>什么是节点</h2><p>节点是swarm中一个Docker engine的实例。在一台物理机或者云服务器上可以运行一个或多个节点，不过生产环境中swarm的部署通常会在多台物理机或者云服务器上。</p>
 <p>通过提交一个服务定义（service definition）到一个manager node来部署应用。而manager node分发工作单元（called tasks）到worker node上。管理节点同时还负责集群的管理和任务的编排，管理节点之间会选举出一个leader来领导编排任务。</p>
@@ -297,6 +300,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/06/08/docker-swarm-start/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          docker swarm mode简单应用
+        
+      </div>
+    </a>
   
   
     <a href="/2017/05/19/docker-swarm-mode-overview/" id="article-nav-older" class="article-nav-link-wrap">
